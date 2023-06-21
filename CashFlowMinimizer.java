@@ -35,6 +35,7 @@ class CashFlowMinimizer {
             Transaction transaction = new Transaction(payer, amount, participants);
             transactions.add(transaction);
         }
+        scanner.close();
 
         minimizeCashFlow(people, transactions);
     }
@@ -87,7 +88,7 @@ class CashFlowMinimizer {
             netAmounts.put(debtor, debt + amount);
             netAmounts.put(creditor, credit - amount);
 
-            System.out.println(debtor + " pays " + creditor + " an amount of " + amount);
+            System.out.println(creditor + " pays " + debtor + " an amount of " + amount);
 
             if (debt + amount == 0) {
                 negativeIndex++;
